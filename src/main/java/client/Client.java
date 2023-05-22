@@ -16,7 +16,9 @@ public class Client {
     public Client(String ipAddress, int port) throws IOException {
         channel = DatagramChannel.open();
         serverAddress = new InetSocketAddress(ipAddress, port);
+        //channel.bind(new InetSocketAddress(12345));
         channel.connect(serverAddress);
+
     }
 
     public void recieve_response(DatagramChannel channel){
@@ -37,7 +39,7 @@ public class Client {
             System.out.println("Error while creating ObjectInputStream!");
             return;
         }
-        Response response = null;
+        Response response;
         try {
             response = (Response) ois.readObject();
         } catch (IOException e) {
@@ -52,7 +54,7 @@ public class Client {
 
     public void sendCommand(Command command) {
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
-        ObjectOutputStream oos = null;
+        ObjectOutputStream oos;
         try {
             oos = new ObjectOutputStream(baos);
         } catch (IOException e) {

@@ -15,8 +15,6 @@ import java.util.Vector;
  * Класс, экземпляры которого позволяют работать с командами, введёнными пользователем как с консоли, так и при помощи файла
  */
 public class UserInput {
-
-    public static final String ANSI_RED = "\u001B[31m";
     public static final String ANSI_RESET = "\u001B[0m";
     public static final String ANSI_PURPLE = "\u001B[35m";
     public static final String ANSI_BLUE = "\u001B[34m";
